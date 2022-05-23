@@ -7,19 +7,23 @@ public:
             return 0;
     }
     bool isValid(string s) {
-        stack<char> temp;
+        map<char, char> Parentheses;
+        Parentheses.insert(pair<char, char>('(', ')'));
+        Parentheses.insert(pair<char, char>('[', ']'));
+        Parentheses.insert(pair<char, char>('{', '}'));
+        
+        stack<char> balancer;
         for(int i = 0; i < s.length(); i++) {
             if(isLeft(s[i]))
-                temp.push(s[i]);
+                balancer.push(s[i]);
             else {
-                
-                if(!temp.empty() && abs(temp.top() - s[i]) <= 2)
-                    temp.pop();
+                if(!balancer.empty() && s[i] == Parentheses[balancer.top()])
+                    balancer.pop();
                 else
                     return 0;
             }
         }
-        if(!temp.empty())
+        if(!balancer.empty())
             return 0;
         else
             return 1;
