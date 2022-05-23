@@ -19,8 +19,6 @@ public:
             else
                 sum += symbols[s[i]];
         }
-        cout << sum;
-        
         return sum;
     }
 };
