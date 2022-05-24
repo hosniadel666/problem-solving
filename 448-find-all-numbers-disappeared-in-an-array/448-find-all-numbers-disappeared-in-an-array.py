@@ -4,4 +4,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        return set(i for i in range(1, len(nums) + 1)) - set(nums)
+        s = []
+        s = [i for i in range(1, len(nums) + 1)]
+        out = set(s) - set(nums)
+        return out
