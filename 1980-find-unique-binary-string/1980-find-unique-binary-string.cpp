@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int convert(string str) {
+    int convert_to_int(string str) {
         int result = 0;
         int size = str.length();
         for(int i = 0; i < size; i++) {
@@ -26,19 +26,14 @@ public:
         int size = nums.size();
         vector<int> nums_i;
         for(int i = 0; i < size; i++)
-            nums_i.push_back(convert(nums[i]));
-        // for(int i = 0; i < size; i++)
-        //     cout << nums_i[i] << endl;
-        
+            nums_i.push_back(convert_to_int(nums[i]));
         for(int i = 0; i < pow(2, size); i++) {
             int flag = 0;
             for(int j = 0; j < size; j++) {
-                if(i == nums_i[j]){
+                if(i == nums_i[j])
                     flag = 1;
-                }
             }
             if(!flag)
-                // cout << i <<endl;
                 return convert_to_str(i, size);
         }
         return nullptr;
