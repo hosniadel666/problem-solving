@@ -1,25 +1,22 @@
 class Solution {
 public:
     vector<string> ans;
-    
-    void func(int a,int b,string s,int n){
-        if (s.length()==2*n){
+    int pair_num;
+    void generate_parentheses(int left, int right, string s) {
+        if (s.length() == 2 * pair_num){
             ans.push_back(s);
             return;
         }
-        
+        if (left)
+            generate_parentheses(left - 1, right, s + '(');
 
-        if (a){
-            func(a-1,b,s+'(',n);
-        }
-        if (b && b>a){
-            func(a,b-1,s+')',n);
-        }
-
+        if (right && right > left)
+            generate_parentheses(left, right - 1, s + ')');
     }
     
     vector<string> generateParenthesis(int n) {
-        func(n,n,"",n);
+        pair_num = n;
+        generate_parentheses(pair_num, pair_num,"");
      return ans;
     }
 };
