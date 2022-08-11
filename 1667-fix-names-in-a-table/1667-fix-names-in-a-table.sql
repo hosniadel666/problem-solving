@@ -4,3 +4,5 @@ SELECT user_id, CONCAT(
                         LOWER(SUBSTRING(name,2))
                       ) name 
 FROM Users ORDER BY user_id;
+
+
