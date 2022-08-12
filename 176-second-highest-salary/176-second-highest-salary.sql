@@ -1,6 +1,5 @@
 # Write your MySQL query statement below
 WITH exp AS (SELECT DISTINCT(salary) FROM Employee ORDER BY salary DESC LIMIT 2)
-# SELECT COUNT(*) FROM exp;
 SELECT
 CASE 
     WHEN 1 = (SELECT COUNT(salary) FROM exp) THEN NULL
