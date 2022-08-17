@@ -6,7 +6,7 @@ public:
         if(s.length() == 0)
             return false;
         s = string_trim(s);
-        for(int i = 0; i < s.length(); i++) {
+        for(int i = 0; i < s.length() / 2; i++) {
             if(s[i] != s[s.length() - 1 - i])
                 return false;
         }
