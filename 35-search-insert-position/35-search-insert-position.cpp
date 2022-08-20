@@ -8,9 +8,9 @@ public:
         if(target == nums[mid])
             return mid;
         else if(target > nums[mid])
-            return (end > mid)? bst(nums, mid + 1, end, target):end + 1;
+            return (end > mid)? bst(nums, mid + 1, end, target):mid + 1;
         else
-            return (start < mid)? bst(nums, start, mid - 1, target):start;
+            return (start < mid)? bst(nums, start, mid - 1, target):mid;
         
     }
 };
