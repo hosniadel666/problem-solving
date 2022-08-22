@@ -1,16 +1,33 @@
 class Solution {
 public:
     vector<vector<int>> merge(vector<vector<int>>& intervals) {
-        vector<vector<int>> output;
-        deque<vector<int>> input;
-        for(int i = 0; i < intervals.size(); i++) 
-            input.push_back(intervals[i]);
+
+    if(intervals.size() == 1) 
+        return intervals;
         
-        sort(input.begin(), input.end());
-        recurse(input, 0);
+    sort(intervals.begin(), intervals.end());
         
-        for(int i = 0; i < input.size(); i++) 
-            output.push_back(input[i]);
+    vector<vector<int>> output;    
+    output.push_back(intervals[0]);
+        
+    for(int i = 1; i < intervals.size(); i++) {
+        if(output.back()[1] >= intervals[i][0]) 
+            output.back()[1] = max(output.back()[1] , intervals[i][1]);
+        else 
+            output.push_back(intervals[i]); 
+    }
+
+//          *recursive solution*-
+//         vector<vector<int>> output;
+//         deque<vector<int>> input;
+//         for(int i = 0; i < intervals.size(); i++) 
+//             input.push_back(intervals[i]);
+        
+//         sort(input.begin(), input.end());
+//         recurse(input, 0);
+        
+//         for(int i = 0; i < input.size(); i++) 
+//             output.push_back(input[i]);
         
         return output;
     }
