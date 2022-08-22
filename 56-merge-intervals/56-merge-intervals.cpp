@@ -3,16 +3,15 @@ public:
     vector<vector<int>> merge(vector<vector<int>>& intervals) {
         vector<vector<int>> output;
         deque<vector<int>> input;
-        for(int i = 0; i < intervals.size(); i++) {
+        for(int i = 0; i < intervals.size(); i++) 
             input.push_back(intervals[i]);
-        }
         
         sort(input.begin(), input.end());
         recurse(input, 0);
         
-        for(int i = 0; i < input.size(); i++) {
+        for(int i = 0; i < input.size(); i++) 
             output.push_back(input[i]);
-        }
+        
         
         return output;
     }
