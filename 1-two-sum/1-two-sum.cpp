@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
+        // The complexity of this solution is O(n)
         map<int, int> m;
         vector<int> output;
         for(int i = 0; i < nums.size(); i++) {
