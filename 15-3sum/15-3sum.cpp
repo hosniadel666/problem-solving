@@ -1,14 +1,14 @@
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
         
-        set<vector<int>> solutions;
+        sort(nums.begin(), nums.end());
+        vector<vector<int>> solutions;
         for(int i = 0; i < nums.size(); i++) {
             if(nums[i] > 0)
                 continue;
             if(i == 0 || nums[i] > nums[i - 1]) {
-                
+        
                 int start = i + 1;
                 int end = nums.size() - 1;
                 int negate = -1 * nums[i];
@@ -20,21 +20,23 @@ public:
                         start++;
                     else {
                         vector<int>temp;
+                        temp.push_back(-1 * negate);
                         temp.push_back(nums[start]);
                         temp.push_back(nums[end]);
-                        temp.push_back(-1 * negate);
                         sort(temp.begin(), temp.end());
-                        solutions.insert(temp);
+                        solutions.push_back(temp);
                         end--;
                         start++;
+                        
+                        while(end > start && nums[end] == nums[end + 1])
+                            end--;
+                        while(end > start && nums[start] == nums[start - 1])
+                            start++;
                     }
                 }
             }
         }
-        vector<vector<int>> result;
-        for(auto it : solutions)
-            result.push_back(it);
-        return result;
+        return solutions;
     
 //  This solutiom exceed the time limit
 //         set<vector<int>> output;
