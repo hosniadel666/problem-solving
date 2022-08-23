@@ -1,14 +1,15 @@
 class Solution {
 public:
     vector<vector<int>> threeSum(vector<int>& nums) {
-        
+        // The complexity of this solution is O(n * n)
         sort(nums.begin(), nums.end());
         vector<vector<int>> solutions;
         for(int i = 0; i < nums.size(); i++) {
+            
             if(nums[i] > 0)
                 continue;
+            
             if(i == 0 || nums[i] > nums[i - 1]) {
-        
                 int start = i + 1;
                 int end = nums.size() - 1;
                 int negate = -1 * nums[i];
