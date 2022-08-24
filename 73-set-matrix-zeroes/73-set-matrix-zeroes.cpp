@@ -16,16 +16,14 @@ public:
                 }    
             }
         }
-        
+
         if(index.empty())
             return;
-        
         for(int i = 0; i < index.size(); i++) {     
             matrix[index[i][0]] = row_zeros;
             for(int k = 0; k < matrix.size(); k++) {
                 matrix[k][index[i][1]] = 0;
             }
         }
-
     }
 };
